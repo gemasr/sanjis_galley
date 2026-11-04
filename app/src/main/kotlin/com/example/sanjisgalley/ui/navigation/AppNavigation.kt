@@ -20,7 +20,7 @@ import androidx.navigation3.runtime.NavKey
 import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.ui.NavDisplay
 import com.example.sanjisgalley.R
-import com.example.sanjisgalley.ui.pantry.PantryScreen
+import com.example.sanjisgalley.ui.pantry.PantryRoute
 import com.example.sanjisgalley.ui.recipes.RecipesScreen
 import com.example.sanjisgalley.ui.shopping.ShoppingScreen
 
@@ -41,7 +41,7 @@ fun AppNavigation() {
   val navigator = remember { Navigator(navigationState) }
 
   val entryProvider = entryProvider {
-    entry<PantryKey> { PantryScreen() }
+    entry<PantryKey> { PantryRoute() }
     entry<RecipesKey> { RecipesScreen() }
     entry<ShoppingKey> { ShoppingScreen() }
   }

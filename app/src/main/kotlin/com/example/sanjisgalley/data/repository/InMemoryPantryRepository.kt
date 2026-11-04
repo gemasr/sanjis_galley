@@ -12,6 +12,12 @@ class InMemoryPantryRepository(initialItems: List<PantryItem>) : PantryRepositor
 
   override val items: Flow<List<PantryItem>> = state
 
+  override fun setQuantity(ingredient: Ingredient, quantity: Int) {
+    state.update { current ->
+      current.map { if (it.ingredient.id == ingredient.id) it.copy(quantity = quantity) else it }
+    }
+  }
+
   override fun add(ingredient: Ingredient, quantity: Int) {
     state.update { current ->
       if (current.any { it.ingredient.id == ingredient.id }) {

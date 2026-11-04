@@ -3,4 +3,10 @@
     <string name="nav_pantry">Despensa</string>
     <string name="nav_recipes">Recetas</string>
     <string name="nav_shopping">Compra</string>
+    <string name="pantry_add_ingredient">Añadir ingrediente</string>
+    <string name="pantry_empty">La despensa está vacía</string>
+    <string name="save">Guardar</string>
+    <string name="label_ingredient">Ingrediente</string>
+    <string name="label_quantity">Cantidad</string>
+    <string name="quantity_format">%1$s · %2$d %3$s</string>
 </resources>

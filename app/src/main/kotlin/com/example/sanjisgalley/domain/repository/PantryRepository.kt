@@ -9,4 +9,7 @@ interface PantryRepository {
 
   /** Adds [quantity] of [ingredient]; if it is already in the pantry, the quantity is summed. */
   fun add(ingredient: Ingredient, quantity: Int)
+
+  /** Replaces the quantity of an ingredient that is already in the pantry. */
+  fun setQuantity(ingredient: Ingredient, quantity: Int)
 }
