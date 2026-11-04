@@ -9,4 +9,13 @@
     <string name="label_ingredient">Ingrediente</string>
     <string name="label_quantity">Cantidad</string>
     <string name="quantity_format">%1$s · %2$d %3$s</string>
+    <string name="ingredient_missing_format">%1$s · %2$d %3$s (faltan %4$d %3$s)</string>
+    <string name="recipe_available">Disponible</string>
+    <string name="recipe_ingredients">Ingredientes</string>
+    <string name="recipe_steps">Pasos</string>
+    <string name="back">Volver</string>
+    <plurals name="recipe_missing_count">
+        <item quantity="one">Falta %d ingrediente</item>
+        <item quantity="other">Faltan %d ingredientes</item>
+    </plurals>
 </resources>

@@ -21,7 +21,8 @@ import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.ui.NavDisplay
 import com.example.sanjisgalley.R
 import com.example.sanjisgalley.ui.pantry.PantryRoute
-import com.example.sanjisgalley.ui.recipes.RecipesScreen
+import com.example.sanjisgalley.ui.recipes.RecipeDetailRoute
+import com.example.sanjisgalley.ui.recipes.RecipesRoute
 import com.example.sanjisgalley.ui.shopping.ShoppingScreen
 
 private data class TopLevelDestination(val key: NavKey, @StringRes val label: Int, val icon: ImageVector)
@@ -42,7 +43,10 @@ fun AppNavigation() {
 
   val entryProvider = entryProvider {
     entry<PantryKey> { PantryRoute() }
-    entry<RecipesKey> { RecipesScreen() }
+    entry<RecipesKey> {
+      RecipesRoute(onRecipeClick = { recipeId -> navigator.navigate(RecipeDetailKey(recipeId)) })
+    }
+    entry<RecipeDetailKey> { key -> RecipeDetailRoute(recipeId = key.recipeId, onBack = navigator::goBack) }
     entry<ShoppingKey> { ShoppingScreen() }
   }
 

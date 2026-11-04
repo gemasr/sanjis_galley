@@ -11,6 +11,7 @@ import com.example.sanjisgalley.domain.repository.RecipeRepository
 import com.example.sanjisgalley.domain.repository.ShoppingRepository
 import com.example.sanjisgalley.domain.usecase.AddMissingToShoppingListUseCase
 import com.example.sanjisgalley.domain.usecase.AddPantryItemUseCase
+import com.example.sanjisgalley.domain.usecase.GetRecipeAvailabilityUseCase
 import com.example.sanjisgalley.domain.usecase.GetRecipesAvailabilityUseCase
 import com.example.sanjisgalley.domain.usecase.ObserveIngredientsUseCase
 import com.example.sanjisgalley.domain.usecase.ObservePantryItemsUseCase
@@ -24,6 +25,7 @@ class AppContainer {
   val shoppingRepository: ShoppingRepository = InMemoryShoppingRepository()
 
   val getRecipesAvailability = GetRecipesAvailabilityUseCase(recipeRepository, pantryRepository)
+  val getRecipeAvailability = GetRecipeAvailabilityUseCase(recipeRepository, pantryRepository)
   val addPantryItem = AddPantryItemUseCase(pantryRepository)
   val updatePantryItemQuantity = UpdatePantryItemQuantityUseCase(pantryRepository)
   val observePantryItems = ObservePantryItemsUseCase(pantryRepository)

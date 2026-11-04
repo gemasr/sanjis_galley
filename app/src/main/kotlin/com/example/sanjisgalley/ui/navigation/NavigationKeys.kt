@@ -8,3 +8,5 @@ import kotlinx.serialization.Serializable
 @Serializable data object RecipesKey : NavKey
 
 @Serializable data object ShoppingKey : NavKey
+
+@Serializable data class RecipeDetailKey(val recipeId: String) : NavKey
