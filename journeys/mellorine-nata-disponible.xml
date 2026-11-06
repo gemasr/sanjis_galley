@@ -1,0 +1,42 @@
+<journey name="Mellorine: añadir nata deja la receta disponible">
+   <description>
+      Con los datos de ejemplo falta la nata para "Mellorine para Nami y Robin" (etiqueta
+      "Falta 1 ingrediente"). Al añadir 250 ml de nata a la despensa, la etiqueta de la receta
+      pasa a "Disponible".
+   </description>
+   <actions>
+     <action>
+       Scroll down the list of recipes until the card "Mellorine para Nami y Robin" is fully visible
+     </action>
+     <action>
+       Verify that the card "Mellorine para Nami y Robin" shows the label "Falta 1 ingrediente"
+     </action>
+     <action>
+       Tap the "Despensa" tab in the bottom navigation bar
+     </action>
+     <action>
+       Tap the button "Añadir ingrediente"
+     </action>
+     <action>
+       Tap the "Ingrediente" field and choose "Nata" from the list
+     </action>
+     <action>
+       Tap the "Cantidad" field and type 250
+     </action>
+     <action>
+       Tap the button "Guardar"
+     </action>
+     <action>
+       Verify that the pantry list shows the text "Nata · 250 ml"
+     </action>
+     <action>
+       Tap the "Recetas" tab in the bottom navigation bar
+     </action>
+     <action>
+       Scroll down the list of recipes until the card "Mellorine para Nami y Robin" is fully visible
+     </action>
+     <action>
+       Verify that the card "Mellorine para Nami y Robin" shows the label "Disponible" and no longer "Falta 1 ingrediente"
+     </action>
+   </actions>
+</journey>
