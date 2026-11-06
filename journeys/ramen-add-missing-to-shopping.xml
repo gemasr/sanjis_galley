@@ -1,0 +1,33 @@
+<journey name="Ramen: añadir faltantes a la compra">
+   <description>
+      Desde los datos de ejemplo, en la receta "Ramen del Baratie" falta caldo de pescado y fideos
+      de trigo. Al pulsar "Añadir faltantes a la compra" aparece el aviso y los dos ingredientes
+      quedan en la pestaña Compra con su faltante como cantidad.
+   </description>
+   <actions>
+     <action>
+       Verify that the app is on the "Recetas" screen and the card "Ramen del Baratie" is visible
+     </action>
+     <action>
+       Tap the card "Ramen del Baratie"
+     </action>
+     <action>
+       Verify that the recipe detail of "Ramen del Baratie" is shown, with the label "Faltan 2 ingredientes" and the button "Añadir faltantes a la compra"
+     </action>
+     <action>
+       Tap the button "Añadir faltantes a la compra"
+     </action>
+     <action>
+       Verify that the notice "Añadido a la lista de la compra" is visible
+     </action>
+     <action>
+       Tap the "Compra" tab in the bottom navigation bar
+     </action>
+     <action>
+       Verify that the text "Fideos de trigo · 200 g" is visible
+     </action>
+     <action>
+       Verify that the text "Caldo de pescado · 500 ml" is visible
+     </action>
+   </actions>
+</journey>
