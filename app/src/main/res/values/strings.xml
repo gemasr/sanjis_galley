@@ -18,4 +18,7 @@
         <item quantity="one">Falta %d ingrediente</item>
         <item quantity="other">Faltan %d ingredientes</item>
     </plurals>
+    <string name="recipe_add_missing">Añadir faltantes a la compra</string>
+    <string name="shopping_added_notice">Añadido a la lista de la compra</string>
+    <string name="shopping_empty">No hay nada que comprar</string>
 </resources>

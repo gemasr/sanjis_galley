@@ -12,4 +12,10 @@ interface ShoppingRepository {
    * purchased, the quantity is summed to that line instead of creating a duplicate.
    */
   fun add(ingredient: Ingredient, quantity: Int)
+
+  /**
+   * Marks the line of [ingredientId] as purchased (or not). If the ingredient already has a line in
+   * the target state, both lines are merged into one.
+   */
+  fun setPurchased(ingredientId: String, purchased: Boolean)
 }

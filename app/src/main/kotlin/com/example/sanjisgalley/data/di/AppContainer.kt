@@ -15,6 +15,8 @@ import com.example.sanjisgalley.domain.usecase.GetRecipeAvailabilityUseCase
 import com.example.sanjisgalley.domain.usecase.GetRecipesAvailabilityUseCase
 import com.example.sanjisgalley.domain.usecase.ObserveIngredientsUseCase
 import com.example.sanjisgalley.domain.usecase.ObservePantryItemsUseCase
+import com.example.sanjisgalley.domain.usecase.ObserveShoppingItemsUseCase
+import com.example.sanjisgalley.domain.usecase.SetShoppingItemPurchasedUseCase
 import com.example.sanjisgalley.domain.usecase.UpdatePantryItemQuantityUseCase
 
 /** Manual dependency container: creates the repositories once, seeded with the sample data. */
@@ -29,6 +31,8 @@ class AppContainer {
   val addPantryItem = AddPantryItemUseCase(pantryRepository)
   val updatePantryItemQuantity = UpdatePantryItemQuantityUseCase(pantryRepository)
   val observePantryItems = ObservePantryItemsUseCase(pantryRepository)
+  val observeShoppingItems = ObserveShoppingItemsUseCase(shoppingRepository)
+  val setShoppingItemPurchased = SetShoppingItemPurchasedUseCase(shoppingRepository)
   val observeIngredients = ObserveIngredientsUseCase(ingredientRepository)
   val addMissingToShoppingList =
     AddMissingToShoppingListUseCase(recipeRepository, pantryRepository, shoppingRepository)

@@ -23,7 +23,7 @@ import com.example.sanjisgalley.R
 import com.example.sanjisgalley.ui.pantry.PantryRoute
 import com.example.sanjisgalley.ui.recipes.RecipeDetailRoute
 import com.example.sanjisgalley.ui.recipes.RecipesRoute
-import com.example.sanjisgalley.ui.shopping.ShoppingScreen
+import com.example.sanjisgalley.ui.shopping.ShoppingRoute
 
 private data class TopLevelDestination(val key: NavKey, @StringRes val label: Int, val icon: ImageVector)
 
@@ -47,7 +47,7 @@ fun AppNavigation() {
       RecipesRoute(onRecipeClick = { recipeId -> navigator.navigate(RecipeDetailKey(recipeId)) })
     }
     entry<RecipeDetailKey> { key -> RecipeDetailRoute(recipeId = key.recipeId, onBack = navigator::goBack) }
-    entry<ShoppingKey> { ShoppingScreen() }
+    entry<ShoppingKey> { ShoppingRoute() }
   }
 
   Scaffold(

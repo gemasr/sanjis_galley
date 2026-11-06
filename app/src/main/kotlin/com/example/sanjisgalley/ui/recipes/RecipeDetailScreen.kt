@@ -11,14 +11,20 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -27,6 +33,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
+import kotlinx.coroutines.launch
 import com.example.sanjisgalley.R
 import com.example.sanjisgalley.SanjisGalleyApplication
 import com.example.sanjisgalley.domain.model.RecipeAvailability
@@ -45,6 +52,7 @@ fun RecipeDetailRoute(recipeId: String, onBack: () -> Unit, modifier: Modifier =
     onEvent = { event ->
       when (event) {
         RecipeDetailUiEvent.BackClicked -> onBack()
+        else -> viewModel.onEvent(event)
       }
     },
     modifier = modifier,
@@ -54,9 +62,22 @@ fun RecipeDetailRoute(recipeId: String, onBack: () -> Unit, modifier: Modifier =
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun RecipeDetailScreen(uiState: RecipeDetailUiState, onEvent: (RecipeDetailUiEvent) -> Unit, modifier: Modifier = Modifier) {
+  val snackbarHostState = remember { SnackbarHostState() }
+  val addedNotice = stringResource(R.string.shopping_added_notice)
+  val scope = rememberCoroutineScope()
+  LaunchedEffect(uiState.showAddedNotice) {
+    if (uiState.showAddedNotice) {
+      // Acknowledge the one-time effect; the snackbar runs in its own scope so that the state
+      // change does not cancel it.
+      onEvent(RecipeDetailUiEvent.NoticeShown)
+      scope.launch { snackbarHostState.showSnackbar(addedNotice) }
+    }
+  }
+
   Scaffold(
     modifier = modifier,
     contentWindowInsets = WindowInsets(0.dp),
+    snackbarHost = { SnackbarHost(snackbarHostState) },
     topBar = {
       TopAppBar(
         title = {},
@@ -71,13 +92,17 @@ fun RecipeDetailScreen(uiState: RecipeDetailUiState, onEvent: (RecipeDetailUiEve
   ) { innerPadding ->
     val availability = uiState.availability
     if (availability != null) {
-      RecipeDetailContent(availability, contentPadding = innerPadding)
+      RecipeDetailContent(availability, contentPadding = innerPadding, onEvent = onEvent)
     }
   }
 }
 
 @Composable
-private fun RecipeDetailContent(availability: RecipeAvailability, contentPadding: PaddingValues) {
+private fun RecipeDetailContent(
+  availability: RecipeAvailability,
+  contentPadding: PaddingValues,
+  onEvent: (RecipeDetailUiEvent) -> Unit,
+) {
   val recipe = availability.recipe
   val missingById = availability.missing.associateBy { it.ingredient.id }
 
@@ -99,6 +124,14 @@ private fun RecipeDetailContent(availability: RecipeAvailability, contentPadding
     item { SectionTitle(stringResource(R.string.recipe_ingredients)) }
     items(recipe.ingredients, key = { it.ingredient.id }) { needed ->
       IngredientLine(needed, missing = missingById[needed.ingredient.id]?.quantity)
+    }
+
+    if (!availability.isAvailable) {
+      item {
+        Button(onClick = { onEvent(RecipeDetailUiEvent.AddMissingClicked) }, modifier = Modifier.padding(top = 4.dp)) {
+          Text(stringResource(R.string.recipe_add_missing))
+        }
+      }
     }
 
     item { SectionTitle(stringResource(R.string.recipe_steps)) }
