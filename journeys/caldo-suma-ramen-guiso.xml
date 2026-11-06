@@ -1,0 +1,42 @@
+<journey name="Caldo de pescado: faltantes de Ramen y Guiso se suman en una línea">
+   <description>
+      "Ramen del Baratie" necesita 500 ml de caldo de pescado y "Guiso del Thousand Sunny" 300 ml, y
+      la despensa de ejemplo no tiene caldo. Tras añadir los faltantes de ambas recetas, la lista de
+      la compra muestra "Caldo de pescado · 800 ml" en una sola línea, sin duplicados.
+   </description>
+   <actions>
+     <action>
+       Tap the card "Ramen del Baratie"
+     </action>
+     <action>
+       Tap the button "Añadir faltantes a la compra"
+     </action>
+     <action>
+       Verify that the notice "Añadido a la lista de la compra" is visible
+     </action>
+     <action>
+       Tap the back arrow with the description "Volver"
+     </action>
+     <action>
+       Scroll down the list of recipes until the card "Guiso del Thousand Sunny" is visible
+     </action>
+     <action>
+       Tap the card "Guiso del Thousand Sunny"
+     </action>
+     <action>
+       Tap the button "Añadir faltantes a la compra"
+     </action>
+     <action>
+       Verify that the notice "Añadido a la lista de la compra" is visible
+     </action>
+     <action>
+       Tap the "Compra" tab in the bottom navigation bar
+     </action>
+     <action>
+       Verify that the text "Caldo de pescado · 800 ml" is visible
+     </action>
+     <action>
+       Verify that the text "Caldo de pescado · 800 ml" appears in exactly one line of the list and there is no other line with "Caldo de pescado"
+     </action>
+   </actions>
+</journey>
