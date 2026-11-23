@@ -1,24 +1,24 @@
 <resources>
     <string name="app_name">SanjisGalley</string>
-    <string name="nav_pantry">Despensa</string>
-    <string name="nav_recipes">Recetas</string>
-    <string name="nav_shopping">Compra</string>
-    <string name="pantry_add_ingredient">Añadir ingrediente</string>
-    <string name="pantry_empty">La despensa está vacía</string>
-    <string name="save">Guardar</string>
-    <string name="label_ingredient">Ingrediente</string>
-    <string name="label_quantity">Cantidad</string>
+    <string name="nav_pantry">Pantry</string>
+    <string name="nav_recipes">Recipes</string>
+    <string name="nav_shopping">Shopping</string>
+    <string name="pantry_add_ingredient">Add ingredient</string>
+    <string name="pantry_empty">The pantry is empty</string>
+    <string name="save">Save</string>
+    <string name="label_ingredient">Ingredient</string>
+    <string name="label_quantity">Quantity</string>
     <string name="quantity_format">%1$s · %2$d %3$s</string>
-    <string name="ingredient_missing_format">%1$s · %2$d %3$s (faltan %4$d %3$s)</string>
-    <string name="recipe_available">Disponible</string>
-    <string name="recipe_ingredients">Ingredientes</string>
-    <string name="recipe_steps">Pasos</string>
-    <string name="back">Volver</string>
+    <string name="ingredient_missing_format">%1$s · %2$d %3$s (missing %4$d %3$s)</string>
+    <string name="recipe_available">Available</string>
+    <string name="recipe_ingredients">Ingredients</string>
+    <string name="recipe_steps">Steps</string>
+    <string name="back">Back</string>
     <plurals name="recipe_missing_count">
-        <item quantity="one">Falta %d ingrediente</item>
-        <item quantity="other">Faltan %d ingredientes</item>
+        <item quantity="one">Missing %d ingredient</item>
+        <item quantity="other">Missing %d ingredients</item>
     </plurals>
-    <string name="recipe_add_missing">Añadir faltantes a la compra</string>
-    <string name="shopping_added_notice">Añadido a la lista de la compra</string>
-    <string name="shopping_empty">No hay nada que comprar</string>
+    <string name="recipe_add_missing">Add missing to shopping list</string>
+    <string name="shopping_added_notice">Added to the shopping list</string>
+    <string name="shopping_empty">Nothing to buy</string>
 </resources>

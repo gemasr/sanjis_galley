@@ -3,7 +3,7 @@ package com.example.sanjisgalley.domain.model
 enum class MeasureUnit(val symbol: String) {
   GRAMS("g"),
   MILLILITERS("ml"),
-  UNITS("ud"),
+  UNITS("pcs"),
 }
 
 data class Ingredient(
