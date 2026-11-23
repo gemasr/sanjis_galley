@@ -54,6 +54,11 @@ Jetpack Compose (with its BOM), Material 3, Material icons (`material-icons-exte
 - Implement only what you are asked for at each moment; do not work ahead on other steps.
 - When you finish each task, build and verify before considering it done, and tell me what you verified.
 - Do not write unit tests unless asked.
+- Build with `./gradlew assembleDebug -q`.
+- Do not read again files you have already read in this session.
+- Do not generate KDoc or `@Preview` functions.
+- Verify on the emulator only once per task: one run and one check of the result, not repeated attempts.
+- Keep your final answer to 3 lines at most: what you did and what you verified.
 
 ## Skills
 - To create the project, build it, run it on a device or emulator and inspect the UI, use the `android-cli` skill ("Use Android CLI"), which `android init` installs.
