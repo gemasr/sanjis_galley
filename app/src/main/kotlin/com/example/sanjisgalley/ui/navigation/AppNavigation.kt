@@ -68,7 +68,7 @@ fun AppNavigation() {
     NavDisplay(
       entries = navigationState.toDecoratedEntries(entryProvider),
       onBack = { navigator.goBack() },
-      modifier = Modifier.padding(innerPadding),
+      modifier = Modifier,
     )
   }
 }
